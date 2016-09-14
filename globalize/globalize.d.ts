@@ -13,6 +13,13 @@ interface NumberFormatterOptions {
    useGrouping?: boolean;
 }
 
+interface DateFormatterOptions {
+   skeleton?: string;
+   time?: string;
+   date?: string;
+   datetime?: string;
+}
+
 interface Cldr {
    /* TODO: add typings */
 }
@@ -22,7 +29,8 @@ interface GlobalizeStatic {
    locale(locale: string): Cldr;
 
    numberFormatter(options?: NumberFormatterOptions): (value: number) => string;
-   formatNumber(value:number, options?: NumberFormatterOptions): string;
+   dateFormatter(options?: DateFormatterOptions): (value: Date) => string;
+   formatNumber(value: number, options?: NumberFormatterOptions): string;
 }
 
 declare var Globalize: GlobalizeStatic;
